@@ -2,7 +2,7 @@
   "name": "coba",
   "version": "1.0.0",
   "description": "Functional Testing boilerplate",
-  "main": "index.js",
+  "main": "bin/coba",
   "dependencies": {
     "commander": "^2.8.1",
     "fs-extra": "^0.23.1",
@@ -19,6 +19,7 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "cli": ".bin/coba"
+    "coba": "bin/coba",
+    "coba-init": "bin/coba-init"
   }
 }
