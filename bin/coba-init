@@ -4,6 +4,7 @@
   var program = require('commander');
   var is = require('is_js');
   var fs = require('fs-extra');
+  var path = require('path');
   
   var namePattern = /^[a-z0-9_]+$/i
   
@@ -28,7 +29,7 @@
       if(namePattern.test(args[i])){        
         fs.mkdirs(args[i],false, function (err,suit) {
           if (err) return console.error(err)
-          fs.copy('./node_modules/coba/template/.config','./'+suit+'/.config',function(err){
+          fs.copy(path.resolve(__dirname,"../template/.config"),'./'+suit+'/.config',function(err){
             if (err) return console.error(err)
             console.log(suit+" test suit has been created!");
           })
