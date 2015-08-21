@@ -1,0 +1,58 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'link' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose linkPkg j:\Projects\coba
+5 verbose gentlyRm vacuuming C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba
+6 silly gentlyRm purging C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba
+7 silly gentlyRm quitting because other entries in C:\Users\sunupf\AppData\Roaming\npm\node_modules
+8 verbose gentlyRm vacuuming C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba
+9 verbose link build target C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba
+10 verbose install where, what [ 'j:\\Projects\\coba', [] ]
+11 warn package.json Dependency 'mocha' exists in both dependencies and devDependencies, using 'mocha@^2.2.5' from dependencies
+12 verbose install where, deps [ 'j:\\Projects\\coba',
+12 verbose install   [ 'commander', 'fs-extra', 'is_js', 'mocha' ] ]
+13 verbose install where, peers [ 'j:\\Projects\\coba', [] ]
+14 info preinstall coba@1.0.0
+15 verbose already installed skipping commander@^2.8.1 j:\Projects\coba
+16 verbose already installed skipping fs-extra@^0.23.1 j:\Projects\coba
+17 verbose already installed skipping is_js@^0.7.4 j:\Projects\coba
+18 verbose already installed skipping mocha@^2.2.5 j:\Projects\coba
+19 silly install resolved []
+20 info build j:\Projects\coba
+21 verbose linkStuff [ false, false, false, 'j:\\Projects' ]
+22 info linkStuff coba@1.0.0
+23 verbose linkBins coba@1.0.0
+24 verbose linkMans coba@1.0.0
+25 verbose rebuildBundles coba@1.0.0
+26 verbose rebuildBundles [ '.bin', 'commander', 'fs-extra', 'is_js', 'mocha' ]
+27 info install coba@1.0.0
+28 info postinstall coba@1.0.0
+29 info prepublish coba@1.0.0
+30 info build C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba
+31 verbose linkStuff [ true,
+31 verbose linkStuff   'C:\\Users\\sunupf\\AppData\\Roaming\\npm\\node_modules',
+31 verbose linkStuff   true,
+31 verbose linkStuff   'C:\\Users\\sunupf\\AppData\\Roaming\\npm\\node_modules' ]
+32 info linkStuff coba@1.0.0
+33 verbose linkBins coba@1.0.0
+34 verbose link bins [ { cli: '.bin/coba' },
+34 verbose link bins   'C:\\Users\\sunupf\\AppData\\Roaming\\npm',
+34 verbose link bins   true ]
+35 verbose linkMans coba@1.0.0
+36 verbose stack Error: ENOENT, chmod 'C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba\.bin\coba'
+36 verbose stack     at Error (native)
+37 verbose cwd j:\Projects\coba
+38 error Windows_NT 6.3.9600
+39 error argv "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "link"
+40 error node v0.12.0
+41 error npm  v2.5.1
+42 error path C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba\.bin\coba
+43 error code ENOENT
+44 error errno -4058
+45 error enoent ENOENT, chmod 'C:\Users\sunupf\AppData\Roaming\npm\node_modules\coba\.bin\coba'
+45 error enoent This is most likely not a problem with npm itself
+45 error enoent and is related to npm not being able to find a file.
+46 verbose exit [ -4058, true ]

@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+(function(){
+  var program = require('commander');
+  var is = require('is_js');
+  var fs = require('fs-extra');
+  
+  var namePattern = /^[a-z0-9_]+$/i
+  
+  program
+    .version('0.0.1')
+    .usage('<name>')
+    .on('--help', function() {
+      require('../help/init')
+    });
+
+  program.parse(process.argv);
+
+  if(program.args.length < 1){
+    console.log('You need to specify specification name')
+  }else{
+    var args = program.args;
+    for(i=0;i<args.length;i++){
+      if(namePattern.test(args[i])){        
+        fs.mkdirs(args[i],false, function (err,suit) {
+          if (err) return console.error(err)
+          fs.copy('./template/.config','./'+suit+'/.config',function(err){
+            if (err) return console.error(err)
+            console.log(suit+" test suit has been created!");
+          })
+        },args[i])
+      }
+    }
+  }
+}).call(this)
+
