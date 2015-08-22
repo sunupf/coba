@@ -2,11 +2,11 @@
 
 (function(){
   var program = require('commander');
-  var is = require('is_js');
   var fs = require('fs-extra');
   var path = require('path');
-  
-  var namePattern = /^[a-z0-9_]+$/i
+  var errors = require('../lib/errors');
+  var validate = require('../lib/validation');
+
   
   program
     .version('0.0.1')
@@ -26,7 +26,7 @@
   }else{
     var args = program.args;
     for(i=0;i<args.length;i++){
-      if(namePattern.test(args[i])){        
+      if(validate.isAlphaNumericUnderscore(args[i])){                
         fs.mkdirs(args[i],false, function (err,suit) {
           if (err) return console.error(err)
           fs.copy(path.resolve(__dirname,"../template/.config"),'./'+suit+'/.config',function(err){
@@ -34,6 +34,8 @@
             console.log(suit+" test suit has been created!");
           })
         },args[i])
+      }else{
+        errors.isAlphaNumericUnderscore(args[i])
       }
     }
   }

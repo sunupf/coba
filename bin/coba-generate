@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+(function(){
+  var program = require('commander');
+  var fs = require('fs-extra');
+  var path = require('path');
+  var validate = require('../lib/validation');
+  var errors = require('../lib/errors');  
+  var gInput = require('../lib/gInput');  
+  
+  program
+    .version('0.0.1')
+    .usage('<type>')
+    .on('--help', function() {
+      require('../help/generate')
+    });
+
+  program.parse(process.argv);
+
+  if(program.args.length < 1){
+    console.log('You need to specify type of generation')
+  }else if(program.args.length === 1 && program.args[0] === 'help'){
+    console.log('  Help : coba init -h')
+    console.log();
+    require('../help/generate')
+  }else{
+    var args = program.args;
+    for(i=0;i<args.length;i++){
+      switch(args[i]){
+        case 'input' : 
+          if(validate.isAlphaNumericUnderscore(args[i])){
+            try{  
+              // get config on current directory
+              var config = require(process.cwd()+'/.config');
+              var gData = gInput.generateInputRecord(config.input);
+              fs.writeJson(process.cwd()+'/data.json', gData, function (err) {
+                if (err) return console.error(err)
+                console.log('Input has been generated and stored at data.json')
+              })
+            }catch(e){
+              console.log(e+"Can't found .config file on current directory");
+            }
+          }else{
+            errors.isAlphaNumericUnderscore(args[i])
+          }
+          break;
+      }
+    }
+  }
+}).call(this)
+

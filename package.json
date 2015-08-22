@@ -5,8 +5,9 @@
   "main": "bin/coba",
   "dependencies": {
     "commander": "^2.8.1",
+    "faker": "^3.0.1",
     "fs-extra": "^0.23.1",
-    "is_js": "^0.7.4"
+    "lodash": "^3.10.1",
   },
   "devDependencies": {
     "mocha": "^2.2.5"
@@ -19,6 +20,7 @@
   "preferGlobal": true,
   "bin": {
     "coba": "bin/coba",
-    "coba-init": "bin/coba-init"
+    "coba-init": "bin/coba-init",
+    "coba-generate": "bin/coba-generate"
   }
 }
