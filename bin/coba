@@ -9,6 +9,7 @@
   program
     .command('init <name>','Create functional test boilerplate for particular specification')
     .command('generate <type>','Generate input/../.. based on config file')
+    .command('test','Run test based on config file and data.json that generated')
 
   program.parse(process.argv);
 }).call(this);

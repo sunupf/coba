@@ -38,7 +38,7 @@
                 console.log('Input has been generated and stored at data.json')
               })
             }catch(e){
-              console.log(e+"Can't found .config file on current directory");
+              console.log(e.message);
             }
           }else{
             errors.isAlphaNumericUnderscore(args[i])
