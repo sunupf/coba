@@ -4,15 +4,8 @@
   var program = require('commander');
   var fs = require('fs-extra');
   var path = require('path');
-  var _ = require('lodash');
   var errors = require('../lib/errors');
   var validate = require('../lib/validation');
-  var config;
-  try{
-    config = require(process.cwd()+'/.config');
-  }catch($e){
-    return console.log($e.message);
-  }
   
   program
     .version('0.0.1')
@@ -22,29 +15,18 @@
 
   program.parse(process.argv);
   
-  if(program.args.length === 1 && program.args[0] === 'help'){
+  if(program.args.length < 1){
+    console.log('You need to specify input file')
+  }else if(program.args.length === 1 && program.args[0] === 'help'){
     console.log('  Help : coba init -h')
     console.log();
     require('../help/test')
-  }else{
-    fs.readJSON(process.cwd()+'/data.json',function(err, dataInput){
-      var driver = require('../lib/binding')
-      
-      driver
-        .open('http://www.google.com/ncr');
-      
-      if (err) 
-        return console.error(err)
-      
-      _.forEach(dataInput,function(testCase,index){
-        _.forEach(testCase.value,function(element,key){
-          driver
-            .setValue(key,element.value)
-            .click("[name='btnG']")
-            .wait(".g",10000);
-        })
-      })
-    });    
+  }else if(program.args.length === 1 && program.args[0] != 'help'){
+    try{
+      require(process.cwd()+'/'+program.args[0])
+    }catch(e){
+      return console.log(e.message);
+    }
   }
 }).call(this)
 
