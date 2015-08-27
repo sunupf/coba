@@ -29,7 +29,7 @@
       if(validate.isAlphaNumericUnderscore(args[i])){                
         fs.mkdirs(args[i],false, function (err,suit) {
           if (err) return console.error(err)
-          fs.copy(path.resolve(__dirname,"../template/.config"),'./'+suit+'/.config',function(err){
+          fs.copy(path.resolve(__dirname,"../template/"),'./'+suit+'/',function(err){
             if (err) return console.error(err)
             console.log(suit+" test suit has been created!");
           })

@@ -1,6 +1,6 @@
 {
   "name": "coba",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Functional Testing boilerplate",
   "main": "bin/coba",
   "dependencies": {
@@ -23,6 +23,7 @@
   "bin": {
     "coba": "bin/coba",
     "coba-init": "bin/coba-init",
-    "coba-generate": "bin/coba-generate"
+    "coba-generate": "bin/coba-generate",
+    "coba-test": "bin/coba-test"
   }
 }
