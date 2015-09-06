@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='log'>
+<head>
+  <meta charset="UTF-8">
+  <title>Coba Log</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body ng-controller="logController as log">
+  <main id="container" class="clear">
+    <div class="">
+      <h3>Opera Test Case</h3>
+      <ul class="table-of-content nav">
+        <li><a href="#normal">Normal Input</a></li>
+        <li><a href="#null">Null Input</a></li>
+        <li><a href="#unallowed">Unallowed Input</a></li>
+        <li><a href="#random">Random Input</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+      <div id="normal" class="content">
+        <h3>Normal Input</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit modi totam, neque accusamus pariatur? Quae atque, maxime, rem eveniet pariatur dolor impedit minima qui repellendus doloremque cupiditate accusamus nihil sed!</p>
+        <table class="uk-table uk-table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Input</th>
+              <th>Expected Result</th>
+              <th>Real Result</th>
+              <th>Load Time</th>
+              <th>Execution Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="data in log.data.log.opera.normal">
+              <td>{{$index+1}}</td>
+              <td>{{data.input}}</td>
+              <td>{{data.expected}}</td>
+              <td>{{data.output}}</td>
+              <td>{{data.load}}</td>
+              <td>{{data.execution}}</td>
+            </tr>
+            <tr ng-hide="log.data.log.opera.normal">
+              <td colspan="6">Data kosong</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="null" class="content">
+        <h3>Null Input</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit modi totam, neque accusamus pariatur? Quae atque, maxime, rem eveniet pariatur dolor impedit minima qui repellendus doloremque cupiditate accusamus nihil sed!</p>
+        <table class="uk-table uk-table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Input</th>
+              <th>Expected Result</th>
+              <th>Real Result</th>
+              <th>Load Time</th>
+              <th>Execution Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="data in log.data.log.opera.null">
+              <td>{{$index+1}}</td>
+              <td>{{data.input}}</td>
+              <td>{{data.expected}}</td>
+              <td>{{data.output}}</td>
+              <td>{{data.load}}</td>
+              <td>{{data.execution}}</td>
+            </tr>
+            <tr ng-hide="log.data.log.opera.null">
+              <td colspan="6">Data kosong</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="unallowed" class="content">
+        <h3>Unallowed Input</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit modi totam, neque accusamus pariatur? Quae atque, maxime, rem eveniet pariatur dolor impedit minima qui repellendus doloremque cupiditate accusamus nihil sed!</p>
+        <table class="uk-table uk-table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Input</th>
+              <th>Expected Result</th>
+              <th>Real Result</th>
+              <th>Load Time</th>
+              <th>Execution Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="data in log.data.log.opera.unallowed">
+              <td>{{$index+1}}</td>
+              <td>{{data.input}}</td>
+              <td>{{data.expected}}</td>
+              <td>{{data.output}}</td>
+              <td>{{data.load}}</td>
+              <td>{{data.execution}}</td>
+            </tr>
+            <tr ng-hide="log.data.log.opera.unallowed">
+              <td colspan="6">Data kosong</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="random" class="content">
+        <h3>Random Input</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit modi totam, neque accusamus pariatur? Quae atque, maxime, rem eveniet pariatur dolor impedit minima qui repellendus doloremque cupiditate accusamus nihil sed!</p>
+        <table class="uk-table uk-table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Input</th>
+              <th>Expected Result</th>
+              <th>Real Result</th>
+              <th>Load Time</th>
+              <th>Execution Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="data in log.data.log.opera.random">
+              <td>1</td>
+              <td>{{data.input}}</td>
+              <td>{{data.expected}}</td>
+              <td>{{data.output}}</td>
+              <td>{{data.load}}</td>
+              <td>{{data.execution}}</td>
+            </tr>
+            <tr ng-hide="log.data.log.opera.random">
+              <td colspan="6">Data kosong</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="summary" class="content">
+        <h3>Summary</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit modi totam, neque accusamus pariatur? Quae atque, maxime, rem eveniet pariatur dolor impedit minima qui repellendus doloremque cupiditate accusamus nihil sed!</p>
+        <table class="uk-table uk-table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Input</th>
+              <th>Expected Result</th>
+              <th>Real Result</th>
+              <th>Load Time</th>
+              <th>Execution Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="data in log.data.log.opera.summary">
+              <td>{{$index+1}}</td>
+              <td>{{data.input}}</td>
+              <td>{{data.expected}}</td>
+              <td>{{data.output}}</td>
+              <td>{{data.load}}</td>
+              <td>{{data.execution}}</td>
+            </tr>
+            <tr ng-hide="log.data.log.opera.normal">
+              <td colspan="6">Data kosong</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <script src="data.js"></script>
+  <script src="assets/angular.min.js"></script>
+  <script src="assets/script.js"></script>
+</body>
+</html>
