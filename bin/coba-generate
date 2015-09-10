@@ -31,7 +31,7 @@
           if(validate.isAlphaNumericUnderscore(args[i])){
             try{  
               // get config on current directory
-              var config = require(process.cwd()+'/.config');
+              var config = require(process.cwd()+'/config');
               var gData = gInput.generateInputRecord(config.input);
               fs.writeJson(process.cwd()+'/data.json', gData, function (err) {
                 if (err) return console.error(err)
