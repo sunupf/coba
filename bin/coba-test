@@ -3,27 +3,49 @@
 (function(){
   var program = require('commander');
   var fs = require('fs-extra');
+  var _ = require('lodash');
   var path = require('path');
   var errors = require('../lib/errors');
   var validate = require('../lib/validation');
+  var browserDriver,configFile;
   
   program
     .version('0.0.1')
+    .arguments('<config> [browser]')
+    .action(function(config,browser){
+      configFile = config
+      browserDriver = browser
+    });
+    
+  program
     .on('--help', function() {
       require('../help/test')
     });
 
   program.parse(process.argv);
-  
-  if(program.args.length < 1){
-    console.log('You need to specify input file')
-  }else if(program.args.length === 1 && program.args[0] === 'help'){
-    console.log('  Help : coba init -h')
-    console.log();
+  if (typeof configFile === 'undefined') {
+    console.error('No config file given!'); 
     require('../help/test')
-  }else if(program.args.length === 1 && program.args[0] != 'help'){
+  }else{
+    var config;
+    var scenario;
     try{
-      require(process.cwd()+'/'+program.args[0])
+      config = require(process.cwd()+'/'+configFile);
+    }catch(e){
+      return console.log(e.message);
+    }
+    if(typeof browserDriver === 'undefined') {
+      browserDriver = config.browser;
+    }
+
+    if(!_.size(config)){
+      return console.log("There are errors on your config file, please check it");
+    }
+    
+    scenario = config.scenario;
+    var cobaTest;
+    try{
+      require(process.cwd()+'/'+scenario);
     }catch(e){
       return console.log(e.message);
     }
