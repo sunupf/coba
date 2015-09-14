@@ -37,6 +37,9 @@
     if(typeof browserDriver === 'undefined') {
       browserDriver = config.browser;
     }
+    
+    global.browserDriver = browserDriver;
+    console.log(global.browserDriver)
 
     if(!_.size(config)){
       return console.log("There are errors on your config file, please check it");
