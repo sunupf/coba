@@ -8,9 +8,10 @@
     "faker": "^3.0.1",
     "fs-extra": "^0.23.1",
     "lodash": "^3.10.1",
+    "mocha": "^2.2.5",
     "randexp": "^0.4.0",
     "selenium-webdriver": "^2.46.1",
-    "mocha": "^2.2.5"
+    "template-string": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^2.2.5"

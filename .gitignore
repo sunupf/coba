@@ -5,3 +5,12 @@
 /node_modules/
 /googling/
 /registration/
+/template/log/assets/
+/template/log/chrome.html
+/template/log/data.js
+/template/log/firefox.html
+/template/log/ie.html
+/template/log/index.html
+/template/log/opera.html
+/template/log/phantom.html
+/template/log/safari.html
