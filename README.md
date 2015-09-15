@@ -125,7 +125,7 @@ You can modified result message by create message.js on your current test folder
 ```javascript
 var messages = {
   'success': 'Your account has been created and activation link already send to your email',
-  'required: '${name} field absolutelly required'
+  'required: "${name} field absolutelly required"
 }
 
 module.exports = messages;
