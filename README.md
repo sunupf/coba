@@ -2,14 +2,18 @@
 Coba is simple tool to help us to do functional system testing easier.
 
 ##Installation
+
 To install coba using npm you just need type
 ```javascript
 npm install coba
 ```
 
 ##Usage
+
 coba support create test case, generate data 
+
 ###Initiate Test
+
 You can initiate functional test with
 ```javascript
 coba init name
@@ -19,6 +23,7 @@ coba init name
 coba init registration_page
 ```
 ###Generate data
+
 For now coba just generate normal data and null data for invalid data.
 
 First you need to edit config.js file and 
