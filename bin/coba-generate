@@ -5,9 +5,9 @@
   var fs = require('fs-extra');
   var path = require('path');
   var validate = require('../lib/validation');
-  var errors = require('../lib/errors');  
-  var gInput = require('../lib/gInput');  
-  
+  var errors = require('../lib/errors');
+  var gInput = require('../lib/gInput');
+
   program
     .version('0.0.1')
     .usage('<type>')
@@ -27,9 +27,9 @@
     var args = program.args;
     for(i=0;i<args.length;i++){
       switch(args[i]){
-        case 'input' : 
+        case 'input' :
           if(validate.isAlphaNumericUnderscore(args[i])){
-            try{  
+            try{
               // get config on current directory
               var config = require(process.cwd()+'/config');
               var gData = gInput.generateInputRecord(config.input);
@@ -48,4 +48,3 @@
     }
   }
 }).call(this)
-

@@ -8,7 +8,7 @@
   var errors = require('../lib/errors');
   var validate = require('../lib/validation');
   var browserDriver,configFile;
-  
+
   program
     .version('0.0.1')
     .arguments('<config> [browser]')
@@ -16,7 +16,7 @@
       configFile = config
       browserDriver = browser
     });
-    
+
   program
     .on('--help', function() {
       require('../help/test')
@@ -24,7 +24,7 @@
 
   program.parse(process.argv);
   if (typeof configFile === 'undefined') {
-    console.error('No config file given!'); 
+    console.error('No config file given!');
     require('../help/test')
   }else{
     var config;
@@ -37,21 +37,21 @@
     if(typeof browserDriver === 'undefined') {
       browserDriver = config.browser;
     }
-    
+
     global.browserDriver = browserDriver;
     console.log(global.browserDriver)
 
     if(!_.size(config)){
       return console.log("There are errors on your config file, please check it");
     }
-    
+
     scenario = config.scenario;
     var cobaTest;
     try{
+      console.log(process.cwd()+"/"+scenario)
       require(process.cwd()+'/'+scenario);
     }catch(e){
       return console.log(e.message);
     }
   }
 }).call(this)
-

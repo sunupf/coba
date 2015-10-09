@@ -1,7 +1,7 @@
 var messages = {
   'messages':{
-    'success': 'Data has been saved',
-    'required': 'The ${name} field is required.'
+    'required': 'The :attribute field is required.',
+    'unique': 'The :email already taken'
   },
   'setMessage':function(key,msg){
     this.messages[key] = msg
