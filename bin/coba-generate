@@ -32,7 +32,9 @@
             try{
               // get config on current directory
               var config = require(process.cwd()+'/config');
-              var gData = gInput.generateInputRecord(config.input);
+              if(config.input){
+                var gData = gInput.generateInputRecord(config.input);
+              }
               fs.writeJson(process.cwd()+'/'+config.data, gData, function (err) {
                 if (err) return console.error(err)
                 console.log('Input has been generated and stored at data.json')
