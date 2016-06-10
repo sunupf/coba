@@ -7,6 +7,7 @@
   var path = require('path');
   var errors = require('../lib/errors');
   var validate = require('../lib/validation');
+  var spawn = require('child_process').spawn;
   var browserDriver,configFile;
 
   program
@@ -30,6 +31,7 @@
     var config;
     var scenario;
     try{
+      console.log(configFile)
       config = require(process.cwd()+'/'+configFile);
     }catch(e){
       return console.log(e.message);
@@ -49,7 +51,17 @@
     var cobaTest;
     try{
       console.log(process.cwd()+"/"+scenario)
-      require(process.cwd()+'/'+scenario);
+
+      // TODO require lib/test.js
+      var Test = require('../lib/test')
+      var objTest = new Test(config)
+      objTest.start()
+      
+      objTest.showConfig();
+      // throw config param
+
+
+      // require(process.cwd()+'/'+scenario);
     }catch(e){
       return console.log(e.message);
     }
