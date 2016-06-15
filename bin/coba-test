@@ -56,12 +56,12 @@
       var Test = require('../lib/test')
       var objTest = new Test(config)
       objTest.start()
-      
+
       objTest.showConfig();
       // throw config param
 
+      require(process.cwd()+'/'+scenario)(objTest.driver , objTest.webdriver);
 
-      // require(process.cwd()+'/'+scenario);
     }catch(e){
       return console.log(e.message);
     }
