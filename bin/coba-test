@@ -31,7 +31,6 @@
     var config;
     var scenario;
     try{
-      console.log(configFile)
       config = require(process.cwd()+'/'+configFile);
     }catch(e){
       return console.log(e.message);
@@ -41,7 +40,6 @@
     }
 
     global.browserDriver = browserDriver;
-    console.log(global.browserDriver)
 
     if(!_.size(config)){
       return console.log("There are errors on your config file, please check it");
@@ -50,17 +48,22 @@
     scenario = config.scenario;
     var cobaTest;
     try{
-      console.log(process.cwd()+"/"+scenario)
+      var testCases =  require(process.cwd()+"/"+config.data);
 
       // TODO require lib/test.js
       var Test = require('../lib/test')
       var objTest = new Test(config)
-      objTest.start()
 
-      objTest.showConfig();
-      // throw config param
+      _.forEach(testCases,function(data, key){
+        objTest.start()
 
-      require(process.cwd()+'/'+scenario)(objTest.driver , objTest.webdriver);
+        var endTime = require(process.cwd()+'/'+scenario)({
+          'coba' : objTest,
+          'data' : data
+        });
+
+        objTest.stop(endTime)
+      });
 
     }catch(e){
       return console.log(e.message);
