@@ -52,18 +52,27 @@
 
       // TODO require lib/test.js
       var Test = require('../lib/test')
-      var objTest = new Test(config)
 
-      _.forEach(testCases,function(data, key){
-        objTest.start()
+      _.forEach(config.browser, function(browser,index){
+        var configSingleBrowser = Object.assign({},config);
+        configSingleBrowser.browser = browser;
+        var objTest = new Test(configSingleBrowser)
+        _.forEach(testCases,function(data, key){
+          objTest.start(data)
 
-        var endTime = require(process.cwd()+'/'+scenario)({
-          'coba' : objTest,
-          'data' : data
+          require(process.cwd()+'/'+scenario)({
+            'coba' : objTest,
+            'data' : data
+          });
+
+          objTest.stop(new Date())
+          // console.log(objTest.result);
+          // console.log(objTest.log);
+          // console.log("==========");
         });
-
-        objTest.stop(endTime)
+        fs.writeJson(process.cwd()+"/log/"+browser+".json", objTest.log)
       });
+
 
     }catch(e){
       return console.log(e.message);
