@@ -4,7 +4,7 @@
 /bower_components/
 /node_modules/
 /googling/
-/registration/
+/login/
 /template/log/assets/
 /template/log/chrome.html
 /template/log/data.js
