@@ -58,14 +58,22 @@
         configSingleBrowser.browser = browser;
         var objTest = new Test(configSingleBrowser)
         _.forEach(testCases,function(data, key){
-          objTest.start(data)
+          // // start test, included record load time
+          // console.log("ok");
+          objTest.start(data);
 
-          require(process.cwd()+'/'+scenario)({
-            'coba' : objTest,
-            'data' : data
-          });
+          // require(process.cwd()+'/'+scenario)({
+          //   'coba' : objTest,
+          //   'data' : data
+          // });
+          // // start required test
+          objTest.startRequiredTest(process.cwd()+'/before.js',objTest,data)
+          // require(process.cwd()+'/before.js')({
+          //   'coba' : objTest,
+          //   'data' : data
+          // });
+          objTest.startExecution(process.cwd()+'/'+scenario, objTest, data)
 
-          objTest.stop(new Date())
           // console.log(objTest.result);
           // console.log(objTest.log);
           // console.log("==========");
