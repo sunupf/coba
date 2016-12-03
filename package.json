@@ -1,24 +1,21 @@
 {
   "name": "coba",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "Functional Testing boilerplate",
   "main": "bin/coba",
   "dependencies": {
-    "chai": "^2.3.0",
-    "chai-webdriver": "^1.1.1",
     "commander": "^2.8.1",
     "faker": "^3.0.1",
     "fs-extra": "^0.23.1",
-    "generate-by-validation": "0.0.5",
+    "generate-by-validation": "0.0.11",
     "lodash": "^3.10.1",
     "mocha": "^2.2.5",
     "pg": "^4.4.2",
     "pg-native": "^1.9.0",
     "randexp": "^0.4.0",
-    "selenium-webdriver": "^2.46.1",
     "template-string": "^1.0.0",
     "validatorjs": "^2.0.5",
-    "webdriver-sync": "^0.18.0"
+    "webdriver-sync": "https://github.com/sunupf/webdriver-sync.git"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
@@ -31,9 +28,15 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "coba": "bin/coba",
-    "coba-init": "bin/coba-init",
-    "coba-generate": "bin/coba-generate",
-    "coba-test": "bin/coba-test"
+    "coba": "./bin/coba",
+    "coba-init": "./bin/coba-init",
+    "coba-generate": "./bin/coba-generate",
+    "coba-test": "./bin/coba-test"
+  },
+  "scripts":{
+    "coba": "./bin/coba",
+    "coba-init": "./bin/coba-init",
+    "coba-generate": "./bin/coba-generate",
+    "coba-test": "./bin/coba-test"
   }
 }
