@@ -1,9 +1,10 @@
 {
   "name": "coba",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Functional Testing boilerplate",
   "main": "bin/coba",
   "dependencies": {
+    "chai": "^3.5.0",
     "commander": "^2.8.1",
     "faker": "^3.0.1",
     "fs-extra": "^0.23.1",
@@ -22,7 +23,11 @@
     "selenium-binaries": "^0.5.0"
   },
   "scripts": {
-    "test": "mocha"
+    "check": "console.log('ok')",
+    "coba": "coba",
+    "coba-init": "coba-init",
+    "coba-generate": "coba-generate",
+    "coba-test": "coba-test"
   },
   "author": "sunupf",
   "license": "MIT",
@@ -32,12 +37,5 @@
     "coba-init": "./bin/coba-init",
     "coba-generate": "./bin/coba-generate",
     "coba-test": "./bin/coba-test"
-  },
-  "scripts":{
-    "check":"console.log('ok')",
-    "coba": "coba",
-    "coba-init": "coba-init",
-    "coba-generate": "coba-generate",
-    "coba-test": "coba-test"
   }
 }

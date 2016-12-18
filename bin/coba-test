@@ -38,7 +38,6 @@
     if(typeof browserDriver === 'undefined') {
       browserDriver = config.browser;
     }
-
     global.browserDriver = browserDriver;
 
     if(!_.size(config)){
@@ -52,7 +51,9 @@
 
       // TODO require lib/test.js
       var Test = require('../lib/test')
-
+      if(!_.isArray(config.browser)){
+        throw new Error("browser name should be array")
+      }
       _.forEach(config.browser, function(browser,index){
         var configSingleBrowser = Object.assign({},config);
         configSingleBrowser.browser = browser;
@@ -61,6 +62,7 @@
           // // start test, included record load time
           // console.log("ok");
           objTest.start(data);
+          console.log("masuk");
 
           // require(process.cwd()+'/'+scenario)({
           //   'coba' : objTest,
