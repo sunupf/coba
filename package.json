@@ -1,6 +1,6 @@
 {
   "name": "coba",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Functional Testing boilerplate",
   "main": "bin/coba",
   "dependencies": {
@@ -34,9 +34,10 @@
     "coba-test": "./bin/coba-test"
   },
   "scripts":{
-    "coba": "./bin/coba",
-    "coba-init": "./bin/coba-init",
-    "coba-generate": "./bin/coba-generate",
-    "coba-test": "./bin/coba-test"
+    "check":"console.log('ok')",
+    "coba": "coba",
+    "coba-init": "coba-init",
+    "coba-generate": "coba-generate",
+    "coba-test": "coba-test"
   }
 }

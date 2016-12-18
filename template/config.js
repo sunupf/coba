@@ -3,15 +3,15 @@ var config = {
     browser that you use
   */
   'browser':'firefox',
-  
+
   /*
     Scenario Test
   */
   'scenario':'test.js',
- 
+
   /*
-    Input form that available on your test page 
-    Ex: 
+    Input form that available on your test page
+    Ex:
       [
         {
           'type':'string',
@@ -39,16 +39,16 @@ var config = {
       'validation':['required','min:8']
     }
   ],
-  
+
   /*
     your page test url
     Ex : http://www.example.com
   */
-  'url':'http://todoapps.dev/register',
-  
+  'startingUrl':'http://todoapps.dev/register',
+
   /*
     data location ehich store our generated data
   */
   'data':'data.json'
-  
+
 }

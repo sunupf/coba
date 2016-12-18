@@ -4,7 +4,7 @@
 /bower_components/
 /node_modules/
 /googling/
-/login/
+/log/
 /template/log/assets/
 /template/log/chrome.html
 /template/log/data.js
@@ -14,3 +14,4 @@
 /template/log/opera.html
 /template/log/phantom.html
 /template/log/safari.html
+/registration/
