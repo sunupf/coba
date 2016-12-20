@@ -2,7 +2,7 @@ var config = {
   /*
     browser that you use
   */
-  'browser':'firefox',
+  'browser':['firefox'],
 
   /*
     Before Execution Script
@@ -62,3 +62,5 @@ var config = {
   'data':'data.json'
 
 }
+
+module.exports = config;
