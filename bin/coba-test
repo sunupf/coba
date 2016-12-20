@@ -44,7 +44,6 @@
       return console.log("There are errors on your config file, please check it");
     }
 
-    scenario = config.scenario;
     var cobaTest;
     try{
       var testCases =  require(process.cwd()+"/"+config.data);
@@ -62,19 +61,28 @@
           // // start test, included record load time
           // console.log("ok");
           objTest.start(data);
-          console.log("masuk");
 
           // require(process.cwd()+'/'+scenario)({
           //   'coba' : objTest,
           //   'data' : data
           // });
+
           // // start required test
-          objTest.startRequiredTest(process.cwd()+'/before.js',objTest,data)
+          if(typeof config.beforeExec != "undefined"){
+            objTest.startRequiredTest(process.cwd()+'/before.js',objTest,data)
+          }else{
+            console.log("before execution script not defined");
+          }
+
           // require(process.cwd()+'/before.js')({
           //   'coba' : objTest,
           //   'data' : data
           // });
-          objTest.startExecution(process.cwd()+'/'+scenario, objTest, data)
+          if(typeof config.scenario != "undefined"){
+            objTest.startExecution(process.cwd()+'/'+config.scenario, objTest, data)
+          }else{
+            throw new Error("Error, scenario is not defined")
+          }
 
           // console.log(objTest.result);
           // console.log(objTest.log);

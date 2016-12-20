@@ -5,9 +5,19 @@ var config = {
   'browser':'firefox',
 
   /*
+    Before Execution Script
+  */
+  'beforeExec':'before.js',
+
+  /*
     Scenario Test
   */
   'scenario':'test.js',
+
+  /*
+    Custom Validation
+  */
+  'customValidation':'validation.js',
 
   /*
     Input form that available on your test page
