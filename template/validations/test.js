@@ -1,13 +1,7 @@
-var testCustomRule = function(param,negation){
-  if(typeof negation != "undefined"){
-    negation = false
-  }
-
-  // you can code anything here to create generator for custom validation
-  // you can set negation to true if you want generate right value for that validation
-  // false if you don't
-
-  // you can pass anything you want into param
+var testCustomRule = function(param){
+  // just return your string patter if this custom rule is regex pattern
+  // ex: return "[0-9]"
+  // you can return function so we can call it back when the value has been generated to check it.
 }
 
 module.exports = testCustomRule;
