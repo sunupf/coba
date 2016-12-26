@@ -47,6 +47,28 @@
             errors.isAlphaNumericUnderscore(args[i])
           }
           break;
+        case 'output' :
+          if(validate.isAlphaNumericUnderscore(args[i])){
+            try{
+              // get config on current directory
+              var config = require(process.cwd()+'/config');
+              var inputs = fs.readJsonSync(process.cwd()+'/'+config.data);
+
+              if(inputs){
+                var gData = gInput.generateOutputResults(inputs,config.input);
+                console.log(gData);
+              }
+              fs.writeJson(process.cwd()+'/'+config.data, gData, function (err) {
+                if (err) return console.error(err)
+                console.log('Output has been generated and stored at '+config.data)
+              })
+            }catch(e){
+              console.log(e.message);
+            }
+          }else{
+            errors.isAlphaNumericUnderscore(args[i])
+          }
+          break;
       }
     }
   }
