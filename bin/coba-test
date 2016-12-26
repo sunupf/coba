@@ -9,6 +9,7 @@
   var validate = require('../lib/validation');
   var spawn = require('child_process').spawn;
   var browserDriver,configFile;
+  var logPath = process.cwd()+"/log/";
 
   program
     .version('0.0.1')
@@ -88,7 +89,11 @@
           // console.log(objTest.log);
           // console.log("==========");
         });
-        fs.writeJson(process.cwd()+"/log/"+browser+".json", objTest.log)
+        console.log('buat dir');
+        fs.ensureDir(logPath)
+        console.log('buat file');
+        console.log(objTest);
+        fs.writeJsonSync(logPath+browser+".json", objTest.log)
       });
 
 
