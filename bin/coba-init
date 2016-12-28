@@ -4,6 +4,11 @@
   var program = require('commander');
   var fs = require('fs-extra');
   var path = require('path');
+  var testSuite =false;
+  try{
+    testSuite = fs.readJsonSync(path.resolve(__dirname,"../testSuite.json"));
+  }catch(e){
+  }
   var errors = require('../lib/errors');
   var validate = require('../lib/validation');
 
@@ -29,10 +34,18 @@
       if(validate.isAlphaNumericUnderscore(args[i])){
         fs.mkdirs(args[i],false, function (err,suit) {
           if (err) return console.error(err)
-          fs.copy(path.resolve(__dirname,"../template/"),'./'+suit+'/',function(err){
-            if (err) return console.error(err)
-            console.log(suit+" test suit has been created!");
-          })
+          fs.copySync(path.resolve(__dirname,"../template/"),'./'+suit+'/');
+          if(testSuite != false){
+            testSuite.push(suit);
+          }else{
+            var files = fs.readdirSync("./");
+            var directories = files.filter(function(file){
+              return !fs.statSync(file).isFile() && file[0] != "." && file != "node_modules";
+            })
+            testSuite = directories
+          }
+          fs.writeJsonSync("./testSuite.json",testSuite);
+          console.log(suit+" test suit has been created!");
         },args[i])
       }else{
         errors.isAlphaNumericUnderscore(args[i])
