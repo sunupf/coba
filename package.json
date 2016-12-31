@@ -1,6 +1,6 @@
 {
   "name": "coba",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Functional Testing boilerplate",
   "main": "bin/coba",
   "dependencies": {
@@ -17,7 +17,7 @@
     "randexp": "^0.4.0",
     "template-string": "^1.0.0",
     "validatorjs": "^2.0.5",
-    "webdriver-sync": "https://github.com/sunupf/webdriver-sync.git"
+    "webdriver-sync" : "https://github.com/sunupf/webdriver-sync"
   },
   "devDependencies": {
     "mocha": "^2.2.5",

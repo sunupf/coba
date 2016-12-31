@@ -89,9 +89,9 @@
           // console.log(objTest.log);
           // console.log("==========");
         });
-        console.log('buat dir');
+        console.log('Create Directory');
         fs.ensureDir(logPath)
-        console.log('buat file');
+        console.log('Create file');
         console.log(objTest);
         fs.writeJsonSync(logPath+browser+".json", objTest.log)
       });
