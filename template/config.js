@@ -20,6 +20,16 @@ var config = {
   'customValidation':'validation.js',
 
   /*
+    Take Screenshot
+  */
+  'screenshot':true,
+
+  /*
+    Screenshot Path
+  */
+  'screenshotPath':'./image',
+
+  /*
     Input form that available on your test page
     Ex:
       [

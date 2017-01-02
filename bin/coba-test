@@ -58,9 +58,11 @@
         var configSingleBrowser = Object.assign({},config);
         configSingleBrowser.browser = browser;
         var objTest = new Test(configSingleBrowser)
+        var testIndex = 1;
         _.forEach(testCases,function(data, key){
           // // start test, included record load time
           // console.log("ok");
+          objTest.testIndex = testIndex;
           objTest.start(data);
 
           // require(process.cwd()+'/'+scenario)({
@@ -88,6 +90,7 @@
           // console.log(objTest.result);
           // console.log(objTest.log);
           // console.log("==========");
+          testIndex++;
         });
         console.log('Create Directory');
         fs.ensureDir(logPath)
