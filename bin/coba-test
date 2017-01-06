@@ -51,10 +51,18 @@
 
       // TODO require lib/test.js
       var Test = require('../lib/test')
-      if(!_.isArray(config.browser)){
-        throw new Error("browser name should be array")
+
+      var arrayOfBrowser
+
+      if(!_.isArray(config.browsers)){
+        arrayOfBrowser = [config.browsers]
+      }else{
+        arrayOfBrowser = config.browsers
       }
-      _.forEach(config.browser, function(browser,index){
+
+      console.log(arrayOfBrowser);
+
+      _.forEach(arrayOfBrowser, function(browser,index){
         var configSingleBrowser = Object.assign({},config);
         configSingleBrowser.browser = browser;
         var objTest = new Test(configSingleBrowser)

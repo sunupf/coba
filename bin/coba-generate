@@ -26,12 +26,12 @@
   }else{
     var args = program.args;
     for(i=0;i<args.length;i++){
+      var config = require(process.cwd()+'/config');
       switch(args[i]){
         case 'input' :
           if(validate.isAlphaNumericUnderscore(args[i])){
             try{
               // get config on current directory
-              var config = require(process.cwd()+'/config');
               console.log(config);
               if(config.input){
                 var gData = gInput.generateInputRecord(config.input);
@@ -51,8 +51,7 @@
           if(validate.isAlphaNumericUnderscore(args[i])){
             try{
               // get config on current directory
-              var config = require(process.cwd()+'/config');
-              var inputs = fs.readJsonSync(process.cwd()+'/'+config.data);
+              var inputs = require(process.cwd()+'/'+config.data);
 
               if(inputs){
                 var gData = gInput.generateOutputResults(inputs,config.input);
