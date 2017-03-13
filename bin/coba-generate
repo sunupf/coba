@@ -55,7 +55,7 @@
 
               if(inputs){
                 var gData = gInput.generateOutputResults(inputs,config.input);
-                console.log(gData);
+                // console.log(gData);
               }
               fs.writeJson(process.cwd()+'/'+config.data, gData, function (err) {
                 if (err) return console.error(err)

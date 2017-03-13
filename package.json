@@ -1,6 +1,6 @@
 {
   "name": "coba",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "Functional Testing boilerplate",
   "main": "bin/coba",
   "dependencies": {
